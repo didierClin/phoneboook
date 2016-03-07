@@ -11,7 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require best_in_place
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+//= require jquery.purr
+//= require best_in_place.purr

@@ -11,10 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216095255) do
+ActiveRecord::Schema.define(version: 20160226095728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "likes", force: :cascade do |t|
+    t.boolean  "like"
+    t.integer  "user_id"
+    t.integer  "list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "likes", ["list_id"], name: "index_likes_on_list_id", using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
+
+  create_table "lists", force: :cascade do |t|
+    t.string   "username"
+    t.string   "phone"
+    t.boolean  "subscribe"
+    t.boolean  "gender"
+    t.string   "address"
+    t.integer  "citycode"
+    t.string   "city"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "email"
+  end
+
+  add_index "lists", ["user_id"], name: "index_lists_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -29,9 +56,19 @@ ActiveRecord::Schema.define(version: 20160216095255) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "username"
+    t.string   "phone"
+    t.boolean  "subscribe"
+    t.boolean  "gender"
+    t.string   "address"
+    t.integer  "citycode"
+    t.string   "city"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "likes", "lists"
+  add_foreign_key "likes", "users"
+  add_foreign_key "lists", "users"
 end

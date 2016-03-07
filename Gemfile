@@ -24,13 +24,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # For secure login and registration administartion
 gem 'devise'
-# Uploader 
+# Uploader
 gem 'carrierwave'
 # Fancy form
 gem 'bootstrap_form'
 # Css & Js library
-gem 'bootstrap-sass' 
-# Hook locally mail 
+gem 'bootstrap-sass'
+# Hook locally mail
 # Run deamon by call him in termilal like so : maicatcher
 # Then go  http://127.0.0.1:1080
 gem 'mailcatcher'
@@ -42,7 +42,8 @@ gem 'mailcatcher'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'jquery-datatables-rails'
+gem 'best_in_place'
 group :development, :test do
   # Access an PRY console on local server or by using <%= binding.pry %>  anywhere you need it (migration , seed ,views ,model etcetc)
   gem 'pry'
@@ -52,11 +53,10 @@ group :development, :test do
   # Make PRY default rails console
   gem 'pry-rails'
   gem 'pry-remote'
-  # Better exception page 
+  # Better exception page
   gem 'better_errors'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

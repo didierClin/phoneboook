@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @list.username %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @list.phone %>
+</p>
+
+<p>
+  <strong>Subscribe:</strong>
+  <%= @list.subscribe %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @list.gender %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @list.address %>
+</p>
+
+<p>
+  <strong>Citycode:</strong>
+  <%= @list.citycode %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @list.city %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @list.user %>
+</p>
+
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>

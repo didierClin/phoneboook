@@ -1,0 +1,45 @@
+<h1>Liste d'utilisateurs</h1>
+
+<table class="table table" id="product_lists">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th >Email</th>
+      <th>Téléphone</th>
+      <th>Recevoir Mail</th>
+      <th>Sexe</th>
+      <th>Adresse</th>
+      <th>User</th>
+      <th>Liked</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @lists.each do |list| %>
+      <tr>
+        <td><%= list.username %></td>
+          <td><%= list.email %></td>
+        <td><%= list.phone %></td>
+        <td><%= best_in_place list, :subscribe,  :as => :checkbox %></td>
+          <td><%= best_in_place list, :gender,  :as => :checkbox %></td>
+        <td><%= list.city %></td>
+          <td><%= list.user.id %></td>
+        <td><%= list.likes.count %></td>
+        <td><%= button_to 'like', like_list_path(list), method: :post  %></td>
+          <td><%= link_to 'Afficher', list %></td>
+          <td><%= link_to 'Editer', edit_list_path(list) %></td>
+          <td><%= link_to 'Supprimer', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nouvel utilisateur', new_list_path %>
+<%= button_to 'Envoyer la Newsletter', new_list_path, method: :post %>
